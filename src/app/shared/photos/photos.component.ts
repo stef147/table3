@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {fadeInAnimation} from "../../app.animations";
 
 @Component({
-  selector: 'app-photos',
+  selector: 'photos',
   templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.less']
+  styleUrls: ['./photos.component.less'],
+  animations: [fadeInAnimation],
+  host: { '[@fadeInAnimation]': '' }
 })
 export class PhotosComponent implements OnInit {
+
+  @Input()  photoName: string;
 
   constructor() { }
 

@@ -1,3 +1,20 @@
-<p>
-  location works!
-</p>
+
+<section id="locationSection" class="locationBackground">
+  <div class="locationContainer">
+    <div class="container-fluid text-center">
+      <h3 class="section-subheading">
+        Where to find us
+      </h3>
+      <p class="large">
+        Units 7-8 TDI House (red doors), Market Street, Tandragee, BT62 2BW.
+      </p>
+      <div class="container mapDiv">
+
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+
+      </div>
+    </div>
+  </div>
+</section>

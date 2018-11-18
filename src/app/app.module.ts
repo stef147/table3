@@ -30,6 +30,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {faFacebookF} from "@fortawesome/free-brands-svg-icons/faFacebookF";
 import {faInstagram} from "@fortawesome/free-brands-svg-icons/faInstagram";
+import {AgmCoreModule} from "@agm/core";
 
 
 library.add(faFacebookF);
@@ -66,7 +67,10 @@ library.add(faInstagram);
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDmp5blb-ong3ICIun0iLPKGi3A2LZfEKg'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
