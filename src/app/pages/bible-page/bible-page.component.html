@@ -1,3 +1,36 @@
-<p>
-  bible-page works!
-</p>
+<!--Bible Reading Plan partial-->
+<section id="bible">
+  <div class="container">
+    <div class="">
+      <h2 class="section-heading">Bible Reading Plan</h2>
+
+
+      <div class="col-lg-12">
+        <div id="pageContent" class="text-black text-justify">
+          <div class="pageContent" innerHtml="{{pageContent}}"></div>
+        </div>
+      </div>
+
+
+      <div class="readingPlanDiv">
+        <a href="https://tabletandragee.org/Docs/TableReadingPlan2018.pdf" target="_blank">
+          <fa-icon [icon]="['far', 'file-pdf']" size="5x"></fa-icon>
+          <p>
+            Reading Plan (PDF)
+          </p>
+        </a>
+      </div>
+
+      <div class="readingPlanDiv">
+        <a href="https://tabletandragee.org/Docs/TableReadingPlan2018.numbers" target="_blank">
+          <fa-icon [icon]="['far', 'file-alt']" size="5x"></fa-icon>
+
+          <p>
+            Reading Plan (numbers)
+          </p>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

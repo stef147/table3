@@ -32,10 +32,14 @@ import {faFacebookF} from "@fortawesome/free-brands-svg-icons/faFacebookF";
 import {faInstagram} from "@fortawesome/free-brands-svg-icons/faInstagram";
 import {AgmCoreModule} from "@agm/core";
 import {HttpClientModule} from "@angular/common/http";
+import {faFilePdf} from "@fortawesome/free-regular-svg-icons/faFilePdf";
+import {faFileAlt} from "@fortawesome/free-regular-svg-icons/faFileAlt";
 
 
 library.add(faFacebookF);
 library.add(faInstagram);
+library.add(faFilePdf);
+library.add(faFileAlt);
 
 
 @NgModule({
