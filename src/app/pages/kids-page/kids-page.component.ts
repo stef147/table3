@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {fadeInAnimation} from "../../app.animations";
 
 @Component({
-  selector: 'app-kids-page',
+  selector: 'kids',
   templateUrl: './kids-page.component.html',
-  styleUrls: ['./kids-page.component.less']
+  styleUrls: ['./kids-page.component.less'],
+  animations: [fadeInAnimation],
+  host: { '[@fadeInAnimation]': '' }
 })
 export class KidsPageComponent implements OnInit {
 

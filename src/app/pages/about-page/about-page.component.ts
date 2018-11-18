@@ -5,7 +5,7 @@ import {fadeInAnimation} from "../../app.animations";
 @Component({
   selector: 'about',
   templateUrl: './about-page.component.html',
-  styleUrls: ['./about-page.component.less']
+  styleUrls: ['./about-page.component.less'],
   animations: [fadeInAnimation],
   host: { '[@fadeInAnimation]': '' }
 })

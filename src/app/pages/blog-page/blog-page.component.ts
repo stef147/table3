@@ -5,7 +5,7 @@ import {ContentService} from "../../shared/content.service";
 @Component({
   selector: 'blog',
   templateUrl: './blog-page.component.html',
-  styleUrls: ['./blog-page.component.less']
+  styleUrls: ['./blog-page.component.less'],
   animations: [fadeInAnimation],
   host: { '[@fadeInAnimation]': '' }
 })

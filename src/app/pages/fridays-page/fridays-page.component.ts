@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {fadeInAnimation} from "../../app.animations";
 
 @Component({
-  selector: 'app-fridays-page',
+  selector: 'fridays',
   templateUrl: './fridays-page.component.html',
-  styleUrls: ['./fridays-page.component.less']
+  styleUrls: ['./fridays-page.component.less'],
+  animations: [fadeInAnimation],
+  host: { '[@fadeInAnimation]': '' }
 })
 export class FridaysPageComponent implements OnInit {
 

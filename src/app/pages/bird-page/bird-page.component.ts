@@ -5,7 +5,7 @@ import {ContentService} from "../../shared/content.service";
 @Component({
   selector: 'bird',
   templateUrl: './bird-page.component.html',
-  styleUrls: ['./bird-page.component.less']
+  styleUrls: ['./bird-page.component.less'],
   animations: [fadeInAnimation],
   host: { '[@fadeInAnimation]': '' }
 })

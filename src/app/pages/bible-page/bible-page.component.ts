@@ -5,7 +5,7 @@ import {ContentService} from "../../shared/content.service";
 @Component({
   selector: 'bible',
   templateUrl: './bible-page.component.html',
-  styleUrls: ['./bible-page.component.less']
+  styleUrls: ['./bible-page.component.less'],
   animations: [fadeInAnimation],
   host: { '[@fadeInAnimation]': '' }
 })

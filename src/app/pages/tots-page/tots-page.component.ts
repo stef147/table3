@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {fadeInAnimation} from "../../app.animations";
 
 @Component({
-  selector: 'app-tots-page',
+  selector: 'tots',
   templateUrl: './tots-page.component.html',
-  styleUrls: ['./tots-page.component.less']
+  styleUrls: ['./tots-page.component.less'],
+  animations: [fadeInAnimation],
+  host: { '[@fadeInAnimation]': '' }
 })
 export class TotsPageComponent implements OnInit {
 
