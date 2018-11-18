@@ -1,3 +1,54 @@
-<p>
-  blog-page works!
-</p>
+<!-- Blog Content -->
+
+<section id="blog">
+  <div class="container-fluid">
+
+    <h2 class="section-heading">Blog</h2>
+
+    <div class="container postContainer"*ngFor="let post of postsContent">
+
+
+      <div class="text-center" id="{{post.slug}}">
+        <div class="col-xs-2 dateDiv">
+          <fa-icon [icon]="['far', 'calendar-alt']" size="3x"></fa-icon>
+
+          <h5 class="">
+            {{post.date | date: 'dd/MM/yyyy'}}
+          </h5>
+        </div>
+        <a class="" ng-href="#" (click)="post.showAll = !post.showAll">
+          <fa-icon class="float-right" *ngIf="!post.showAll" [icon]="['fas', 'plus-circle']" size="2x"></fa-icon>
+          <fa-icon class="float-right" *ngIf="post.showAll" [icon]="['fas', 'minus-circle']" size="2x"></fa-icon>
+
+        </a>
+        <div>
+          <h2 class="subHeader">
+            {{post.title.rendered}}
+          </h2>
+          <h4 class="subHeader">
+            AUTHOR: {{getAuthor(post.author)}}
+          </h4>
+        </div>
+      </div>
+
+
+
+      <div  [ngSwitch]="post.showAll">
+        <div *ngSwitchCase="true" innerHtml="{{post.content.rendered }}"></div>
+        <div *ngSwitchCase="false" innerHtml="{{post.content.rendered | slice:0:500 }}..."></div>
+        <div *ngSwitchDefault innerHtml="{{post.content.rendered | slice:0:500 }}...">
+        </div>
+      </div>
+
+
+
+
+      <button class="btn btn-info" (click)="post.showAll = !post.showAll">
+        {{post.showAll ? 'Hide Full Post' : 'Show Full Post'}}
+      </button>
+
+    </div>
+
+
+  </div>
+</section>
