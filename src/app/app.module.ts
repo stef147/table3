@@ -37,6 +37,7 @@ import {faFileAlt} from "@fortawesome/free-regular-svg-icons/faFileAlt";
 import {faCalendarAlt} from "@fortawesome/free-regular-svg-icons/faCalendarAlt";
 import {faPlusCircle} from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 import {faMinusCircle} from "@fortawesome/free-solid-svg-icons/faMinusCircle";
+import {NgbPopoverModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 library.add(faFacebookF);
@@ -80,6 +81,7 @@ library.add(faMinusCircle);
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
+    NgbPopoverModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDmp5blb-ong3ICIun0iLPKGi3A2LZfEKg'
     })

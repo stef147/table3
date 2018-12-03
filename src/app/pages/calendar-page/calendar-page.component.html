@@ -1,3 +1,78 @@
-<p>
-  calendar-page works!
-</p>
+<!--Calendar partial-->
+<section id="calendar">
+  <div class="container">
+    <h2 class="section-heading">Calendar</h2>
+
+
+    <div class="table-responsive">
+      <div class="month-nav">
+        <h2 class="text-center subHeader">
+          <a ng-href="#" (click)="prevMonth()" >
+            <i class="fa  fa-arrow-left"></i>
+          </a>
+          {{ startMonth.format('MMMM') }}
+          {{ startMonth.format('YYYY') }}
+          <a ng-href="#" (click)="nextMonth()" >
+            <i class="fa  fa-arrow-right"></i>
+          </a>
+        </h2>
+
+      </div>
+
+
+      <table class="table">
+
+        <thead class="">
+        <tr>
+          <th *ngFor="let day of dayNames">
+            {{day}}
+          </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let week of daysOfMonthArray; let i = index">
+
+          <ng-container *ngFor="let dayNumber of daysInAWeek">
+            <td *ngIf="i ===0 && startMonth.isoWeekday() > dayNumber">
+
+            </td>
+          </ng-container>
+
+          <td *ngFor="let day of week">
+            <b>
+              {{day.format('D')}}
+            </b>
+
+            <ng-container *ngIf="day.events">
+              <div *ngFor="let event of day.events">
+                <div
+                  ngbPopover="{{event.description}}"
+                  popoverTitle="{{event.name}} - {{event.start| date:' h:mma'}} @ {{event.place}}">
+                  <a>
+                    {{event.name}} - {{event.start| date:' h:mma'}}
+                  </a>
+
+                </div>
+
+                <div>
+                  <a href="{{event.link}}"  target="_blank">
+                    <i class="fa fa-facebook fa-2x"></i>
+                  </a>
+                </div>
+              </div>
+            </ng-container>
+          </td>
+
+        </tr>
+        </tbody>
+
+
+
+      </table>
+    </div>
+
+
+
+  </div>
+</section>

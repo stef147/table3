@@ -2,20 +2,22 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {throwError} from "rxjs";
-import {catchError} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContentService {
 
-  private id = '336868909983866|b3f4c857f718d9fb677abb1ac8993f25';
+  private id = 'EAAEyYWe3KHoBAPCmAzZC72ONRIEtpZBJCzJo7I3HZAYjsxwvmB5Vy5ZB370GF0NjgmdKm4AMZBBfuFCq3QZApyqvqa9X3lrmj3X2ZACscOS6EZAu4kLYizp29vBFbbNzZAZCLETMOXrB1Se3h0MDwEEGryeDBZC80k1V2Y5jZCMJLOCUEQZDZD';
+
   private startMonth = moment().startOf('month').unix();
   private endMonth  = moment().endOf('month').unix();
 
   private pagesUrl = 'https://tabletandragee.org/Content/wp-json/wp/v2/pages';
   private postsUrl = 'https://tabletandragee.org/Content/wp-json/wp/v2/posts';
   private eventsUrl = 'https://graph.facebook.com/tabletandragee/events?fields=cover,name,description,place,id,start_time,event_times&access_token=' + this.id;
+  // private eventsUrl = 'https://graph.facebook.com//v3.2/tabletandragee?fields=events,about&access_token=' + this.id;
 
   allPages: any;
   allPosts: any;
@@ -29,12 +31,17 @@ export class ContentService {
   getPages(){
     if(!this.allPages){
       console.log('>>>ContentService.getPages');
-      return this.allPages = this.http.get(this.pagesUrl)
+      return this.http.get(this.pagesUrl)
         .pipe(
-          catchError(err => {
-            console.log('error occurred in getPages ');
-              this.handleError(err);
-          })
+          map( res => {
+            if (res !== null) {
+              return this.allPages = res;
+            } else {
+              const httpErrror = new HttpErrorResponse({error: new Error('Error in allPages')});
+              throw httpErrror;
+            }
+          }),
+          catchError((err) => this.handleError(err))
         );
     } else {
       return this.allPages;
@@ -44,12 +51,17 @@ export class ContentService {
   getPosts(){
     if(!this.allPosts){
       console.log('>>>ContentService.getPosts');
-      return this.allPosts = this.http.get(this.postsUrl)
+      return this.http.get(this.postsUrl)
         .pipe(
-          catchError(err => {
-            console.log('error occurred in getPosts ');
-            this.handleError(err);
-          })
+          map( res => {
+            if (res !== null) {
+              return this.allPosts = res;
+            } else {
+              const httpErrror = new HttpErrorResponse({error: new Error('Error in getPosts')});
+              throw httpErrror;
+            }
+          }),
+          catchError((err) => this.handleError(err))
         );
     } else {
       return this.allPosts;
@@ -59,12 +71,17 @@ export class ContentService {
   getEvents(){
     if(!this.allEvents){
       console.log('>>>ContentService.getEvents');
-      return this.allEvents = this.http.get(this.eventsUrl)
+      return this.http.get(this.eventsUrl)
         .pipe(
-          catchError(err => {
-            console.log('error occurred in getEvents ');
-            this.handleError(err);
-          })
+          map( res => {
+            if (res !== null) {
+              return this.allPosts = res;
+            } else {
+              const httpErrror = new HttpErrorResponse({error: new Error('Error in getPosts')});
+              throw httpErrror;
+            }
+          }),
+          catchError((err) => this.handleError(err))
         );
     } else {
       return this.allEvents;
